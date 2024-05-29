@@ -10,7 +10,7 @@
 
     <groupId>com.example.burp</groupId>
     <artifactId>burp-modifer-header-branch</artifactId>
-    <version>1.0</version>
+    <version>1.2</version>
 
     <dependencies>
         <dependency>
