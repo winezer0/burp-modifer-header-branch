@@ -12,6 +12,14 @@
     <artifactId>burp-modifer-header-branch</artifactId>
     <version>1.0</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.portswigger.burp.extender</groupId>
+            <artifactId>burp-extender-api</artifactId>
+            <version>1.7.22</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
@@ -49,21 +57,10 @@
                     <target>1.8</target>
                     <excludes>
                         <!-- 编译时排除Deprecated包及下面的资源 -->
-                        <exclude>**/Requester/**</exclude>
-                        <exclude>**/Deprecated/**</exclude>
                         <exclude>**/test/**</exclude>
                     </excludes>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>net.portswigger.burp.extender</groupId>
-            <artifactId>burp-extender-api</artifactId>
-            <version>1.7.22</version>
-        </dependency>
-    </dependencies>
-
 </project>
