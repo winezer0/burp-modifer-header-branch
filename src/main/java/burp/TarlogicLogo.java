@@ -25,7 +25,7 @@ public class TarlogicLogo extends JLabel
 				@Override
 				public void mouseClicked (MouseEvent e) 
 				{
-					CustomTools.openURL ("http://www.tarlogic.com");
+					//CustomTools.openURL ("https://github.com/winezer0");
 				}
 			}
         );

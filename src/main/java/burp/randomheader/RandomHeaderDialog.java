@@ -256,42 +256,47 @@ public class RandomHeaderDialog extends JDialog implements ActionListener
 		JPanel content = new JPanel (new GridBagLayout ());
 	
 		content.setBorder (BorderFactory.createEmptyBorder (10, 10, 10, 10));
-		
+
 		/* First row */
-		JPanel row = new JPanel (new FlowLayout (FlowLayout.LEFT));
-		content.add (row, placeAt (0, 0));
-		{	
-			row.add (this.nameLabel);
-			row.add (this.headerNameField);
+		JPanel row_nameLabel = new JPanel (new FlowLayout (FlowLayout.LEFT));
+		{
+			row_nameLabel.add (this.nameLabel);
 		}
-		
+		content.add (row_nameLabel, placeAt (0, 0));
+
+		JPanel row_headerNameField = new JPanel (new FlowLayout (FlowLayout.LEFT));
+		{
+			row_headerNameField.add (this.headerNameField);
+		}
+		content.add (row_headerNameField, placeAt (0, 1));
+
 		/* Second row */
 		JPanel typeRow = new JPanel (new GridBagLayout ());
-		content.add (typeRow, placeAt (0, 1));
+		content.add (typeRow, placeAt (0, 2));
 		{
 			typeRow.add (this.typeLabel, placeAt (0, 0));
 			
 			JPanel typeList = new JPanel (new GridBagLayout ());
 			{
-				typeList.add (this.ipv4RadioButton, placeAt (0, 0));
+				typeList.add (this.ipv4RadioButton, placeAt (0, 1));
 				JPanel ipv4Panel = new JPanel (new FlowLayout (FlowLayout.LEFT));
 				{
 					ipv4Panel.add (this.range4Label);
 					ipv4Panel.add (this.range4Field);
 				}
+
+				typeList.add (ipv4Panel, placeAt (0, 2));
 				
-				typeList.add (ipv4Panel, placeAt (0, 1));
-				
-				typeList.add (this.ipv6RadioButton, placeAt (0, 2));
+				typeList.add (this.ipv6RadioButton, placeAt (0, 4));
 				JPanel ipv6Panel = new JPanel (new FlowLayout (FlowLayout.LEFT));
 				{
 					ipv6Panel.add (this.range6Label);
 					ipv6Panel.add (this.range6Field);
 				}
 				
-				typeList.add (ipv6Panel, placeAt (0, 3));
+				typeList.add (ipv6Panel, placeAt (0, 5));
 				
-				typeList.add (this.fileRadioButton, placeAt (0, 4));
+				typeList.add (this.fileRadioButton, placeAt (0, 7));
 				
 				JPanel filePanel = new JPanel (new FlowLayout (FlowLayout.LEFT));
 				{
@@ -299,19 +304,19 @@ public class RandomHeaderDialog extends JDialog implements ActionListener
 					filePanel.add (this.fileChooserButton);
 				}
 				
-				typeList.add (filePanel, placeAt (0, 5));
+				typeList.add (filePanel, placeAt (0, 9));
 				
-				typeList.add (this.fixedRadioButton, placeAt (0, 6));
+				typeList.add (this.fixedRadioButton, placeAt (0, 11));
 				
 				JPanel fixedPanel = new JPanel (new FlowLayout (FlowLayout.LEFT));
 				{
 					fixedPanel.add (this.fixedTextField);
 				}
 				
-				typeList.add (fixedPanel, placeAt (0, 7));
+				typeList.add (fixedPanel, placeAt (0, 12));
 			}
 			
-			typeRow.add (typeList, placeAt (0, 1));
+			typeRow.add (typeList, placeAt (0, 4));
 			
 			this.typeGroup.add (this.ipv4RadioButton);
 			this.typeGroup.add (this.ipv6RadioButton);
@@ -333,7 +338,7 @@ public class RandomHeaderDialog extends JDialog implements ActionListener
 		
 		/* Third row, dialog buttons */
 		JPanel dialogButtonsRow = new JPanel (new FlowLayout (FlowLayout.RIGHT));
-		content.add (dialogButtonsRow, placeAt (0, 2));
+		content.add (dialogButtonsRow, placeAt (0, 3));
 		{
 			okButton = JIconButton ("OK", "dialog-accept.png");
 			cancelButton = JIconButton ("Cancel", "dialog-cancel-4.png");
@@ -362,7 +367,7 @@ public class RandomHeaderDialog extends JDialog implements ActionListener
 		
 		this.setLocationRelativeTo (handler.getContainerWindow ());
 		this.setModalityType (Dialog.ModalityType.APPLICATION_MODAL);
-		this.setSize(new Dimension (300, 370));
+		this.setSize(new Dimension (300, 380));
 		
 		this.setResizable (false);
 		

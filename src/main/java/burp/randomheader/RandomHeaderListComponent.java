@@ -81,26 +81,39 @@ public class RandomHeaderListComponent
 		
 		try
 		{
-			header = new RandomHeader ("X-Forwarded-For", RandomHeaderType.RANDOM_IPV4);
+
+			header = new RandomHeader ("--TestAllVar", RandomHeaderType.FIXED_LIST);
+			header.addFixed("URL:[%RURL%]--HOST:[%RHOST%]--PORT:[%RPORT%]--RealHOST:[%RealHOST%]--PROTOCOL:[%RPROTOCOL%]--URLPATH:[%RURLPATH%]--URLQUERY:[%RURLQUERY%]--METHOD:[%RMETHOD%]");
+			addRandomHeader (header);
+			
+			header = new RandomHeader ("--X-Forwarded-For", RandomHeaderType.RANDOM_IPV4);
 			header.setIPv4NetAddr ("10.0.0.0/8");
 			addRandomHeader (header);
 			
-			header = new RandomHeader ("X-Forwarded", RandomHeaderType.RANDOM_IPV4);
+			header = new RandomHeader ("--X-Forwarded", RandomHeaderType.RANDOM_IPV4);
 			header.setIPv4NetAddr ("172.16.0.0/16");
 			addRandomHeader (header);
 			
-			header = new RandomHeader ("Client-IP", RandomHeaderType.RANDOM_IPV4);
+			header = new RandomHeader ("--Client-IP", RandomHeaderType.RANDOM_IPV4);
 			header.setIPv4NetAddr ("192.168.0.0/24");
 			addRandomHeader (header);
 			
-			header = new RandomHeader ("Cluster-Client-IP", RandomHeaderType.FIXED_LIST);
+			header = new RandomHeader ("--Cluster-Client-IP", RandomHeaderType.FIXED_LIST);
 			header.addFixed("127.0.0.1");
 			addRandomHeader (header);
 			
-			header = new RandomHeader ("True-Client-IP", RandomHeaderType.RANDOM_IPV6);
+			header = new RandomHeader ("--True-Client-IP", RandomHeaderType.RANDOM_IPV6);
 			header.setIPv6NetAddr ("2a02:f400::/29");
 			addRandomHeader (header);
+
+			header = new RandomHeader ("--Referer", RandomHeaderType.FIXED_LIST);
+			header.addFixed("%RURL%");
+			addRandomHeader (header);
 			
+			header = new RandomHeader ("--Host", RandomHeaderType.FIXED_LIST);
+			header.addFixed("%RealHOST%");
+			addRandomHeader (header);
+
 			
 		}
 		catch (Exception e)

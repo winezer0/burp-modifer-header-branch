@@ -163,7 +163,7 @@ public class RandomHeaderUITab implements ITab, IRandomHeaderDialogHandler, Acti
 	copyrightLine ()
 	{
 		JPanel p = new JPanel (new FlowLayout (FlowLayout.LEFT, 0, 0));
-		p.add (new TarlogicLogo ("Random Header extension by Gonzalo J. Carracedo - (c) 2013 Tarlogic Security"));
+		p.add (new TarlogicLogo ("Random Header extension Modify and Repair By WINEZERO - (c) 2021 NOVASEC"));
 		
 		return p;
 	}
@@ -203,7 +203,7 @@ public class RandomHeaderUITab implements ITab, IRandomHeaderDialogHandler, Acti
 		
 		this.gridBagPanel.add (this.stayInScope = new JCheckBox ("Apply to in-scope requests only"), placeAt (0, 1, 2));
 		
-		this.stayInScope.setSelected (true);
+		this.stayInScope.setSelected (false);
 		
 		this.isEnabled.addActionListener (this);
 		
