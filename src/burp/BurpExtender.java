@@ -12,32 +12,27 @@ public class BurpExtender implements IBurpExtender
 
 	private RandomHeaderUITab tab;
 	
-	public IExtensionHelpers
-	getExtensionHelpers ()
+	public IExtensionHelpers getExtensionHelpers ()
 	{
 		return helpers;
 	}
 	
-	public java.util.List
-	getRandomHeaderList ()
+	public java.util.List getRandomHeaderList ()
 	{
 		return tab.getRandomHeaderList ();
 	}
 	
-	public boolean
-	isEnabled ()
+	public boolean isEnabled ()
 	{
 		return tab.extensionEnabled ();
 	}
 	
-	public boolean
-	stayInScope ()
+	public boolean stayInScope ()
 	{
 		return tab.inScope ();
 	}
 	
-	public boolean
-	inScope (URL url)
+	public boolean inScope (URL url)
 	{
 		return callbacks.isInScope (url);
 	}
